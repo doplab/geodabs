@@ -1,6 +1,5 @@
 package ch.unil.doplab.geodabs.distance;
 
-
 import ch.unil.doplab.geodabs.model.Point;
 
 /**

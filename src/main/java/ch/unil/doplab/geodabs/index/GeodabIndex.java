@@ -73,7 +73,7 @@ public class GeodabIndex implements TrajectoryIndex {
     public RoaringBitmap extract(List<Point> points) {
         RoaringBitmap rr = new RoaringBitmap();
 
-        // Build the list of length-gram fingerprints
+        // Build the list of k-gram fingerprints
         ArrayList<Fingerprint> fingerprints = new ArrayList<>();
         for (int i = 0; i <= points.size() - k; i++) {
             Hasher hasher = hashFunction.newHasher();
@@ -93,7 +93,7 @@ public class GeodabIndex implements TrajectoryIndex {
             fingerprints.add(new Fingerprint(hash, i));
         }
 
-        // Winnow the list of length-gram fingerprints
+        // Winnow the list of k-gram fingerprints
         int w = t - k + 1;
         for (int i = 0; i <= fingerprints.size() - w; i++) {
             int m = i;
